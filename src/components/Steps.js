@@ -1,6 +1,10 @@
-import { Steps, Button, message } from "antd";
+import { Steps, Button, message, Breadcrumb, Divider } from "antd";
 import styled from "styled-components";
 import React from "react";
+import Dashboard1 from "../pages/Dashboard1";
+import KPI from "../pages/KPI";
+import SetUp from "../pages/SetUp";
+import { Link } from "react-router-dom";
 const { Step } = Steps;
 
 const steps = [
@@ -25,7 +29,18 @@ const StepsS = () => {
   const prev = () => {
     setCurrent(current - 1);
   };
-
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return Error;
+      case 1:
+        return <KPI />;
+      case 2:
+        return <SetUp />;
+      default:
+        return Error;
+    }
+  }
   return (
     <StyledSteps>
       <Steps current={current}>
@@ -33,7 +48,21 @@ const StepsS = () => {
           <Step key={item.title} title={item.title} />
         ))}
       </Steps>
+      <div>
+        <Divider />
+        <Breadcrumb>
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link primrary="KPI">KPI</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link primary="SetUp">KPI Setup</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>Customize</Breadcrumb.Item>
+        </Breadcrumb>
+      </div>
       <div className="steps-content">{steps[current].content}</div>
+      {getStepContent(current)}
       <div className="steps-action">
         {current < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>

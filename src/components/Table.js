@@ -74,10 +74,6 @@ const data = [
 ];
 
 export default function TableD(columns, dataSource) {
-  return (
-    <div>
-      columns={columns}
-      dataSource={data}
-    </div>
-  );
+  return <div columns={columns} dataSource={data}></div>;
 }
+x;
