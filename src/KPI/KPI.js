@@ -1,7 +1,7 @@
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
 import React from "react";
-import ProgressCircle from "../components/ProgressCircle";
+import { Progress } from "antd";
 
 const listData = [];
 for (let i = 0; i < 5; i++) {
@@ -10,7 +10,7 @@ for (let i = 0; i < 5; i++) {
     title: `KPI ${i}`,
     avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
     description: "this is a KPI",
-    content: "we usually use to do this and that",
+    content: "we usually use it to do this and that",
   });
 }
 
@@ -56,7 +56,14 @@ const KPI = () => {
           />
           {item.content}
           <div style={{ marginLeft: "auto", marginTop: "-1%", width: "30%" }}>
-            <ProgressCircle />
+            <Progress
+              strokeColor={{
+                from: "#108ee9",
+                to: "#87d068",
+              }}
+              percent={80}
+              status="active"
+            />
           </div>
         </List.Item>
       )}

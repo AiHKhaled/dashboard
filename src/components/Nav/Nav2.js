@@ -14,22 +14,22 @@ import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import { mainListItems, secondaryListItems } from "../components/listItems";
+import { mainListItems, secondaryListItems } from "../listItems";
 
 /* import Chart from "./Chart"; */
 /* import Deposits from "../components/Deposits";
-import Orders from "../components/Orders";
-import Piechart from "../components/Piechart";
-import GlobalStyle from "./GlobalStyle"; */
+import Orders from "../components/Orders"; */
 import styled from "styled-components";
-import Dashboard1 from "../pages/Dashboard1";
-import SetUp from "../pages/SetUp";
-import KPI from "../pages/KPI";
+import Dashboard1 from "../../pages/Dashboard1";
+import SetUp from "../../pages/SetUp";
+import KPI from "../../pages/KPI";
 import { Switch, Route } from "react-router-dom";
+import Sider from "../Nav/Navbar";
+import { Link } from "@material-ui/core";
+import Goals from "../../Goals/Goals";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -186,7 +186,9 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+
+        <Sider />
+
         <Divider />
       </Drawer>
       <main className={classes.content}>
@@ -201,6 +203,9 @@ export default function Dashboard() {
             </Route>
             <Route>
               <Dashboard1 />
+            </Route>
+            <Route path="/Goals" exact>
+              <Goals />
             </Route>
           </Switch>
         </Container>

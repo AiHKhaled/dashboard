@@ -2,9 +2,11 @@ import React from "react";
 import CheckOut from "../components/CheckOut";
 
 import StepsS from "../components/Steps";
-import KPITable from "../components/KPITable";
+//import KPITable from "../KPI/KPITable";
 import Tabletrial from "../components/Tabletrial";
+//import App from "../trial/TableF";
 import { Divider } from "antd";
+import CustomerSegmentation from "../Customers/CustomerSegmentation";
 
 const KPI = () => {
   return (
@@ -13,7 +15,8 @@ const KPI = () => {
       <Divider />
       {/* <Tabletrial />
        */}
-      <KPITable />
+      {/* <KPITable /> */}
+      <CustomerSegmentation />
     </div>
   );
 };

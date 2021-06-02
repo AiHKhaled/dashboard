@@ -51,6 +51,10 @@ class KPITable extends React.Component {
   state = {
     filteredInfo: null,
     sortedInfo: null,
+    data: data,
+  };
+  AddTable = (name, description) => {
+    data.push({ name: name, description: description });
   };
 
   handleChange = (pagination, filters, sorter) => {
@@ -157,7 +161,7 @@ class KPITable extends React.Component {
           <Button onClick={this.clearFilters}>Clear filters</Button>
           <Button onClick={this.clearAll}>Clear filters and sorters</Button>
 
-          <CollectionsPage />
+          <CollectionsPage AddTable={this.AddTable} />
         </Space>
         <Table
           columns={columns}

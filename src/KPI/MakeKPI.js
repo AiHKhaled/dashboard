@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Input, Radio } from "antd";
 
-const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
+const CollectionCreateForm = ({ visible, onCreate, onCancel, AddTable }) => {
   const [form] = Form.useForm();
+
   return (
     <Modal
       visible={visible}
@@ -57,11 +58,12 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
   );
 };
 
-const CollectionsPage = () => {
+const CollectionsPage = (props) => {
   const [visible, setVisible] = useState(false);
 
   const onCreate = (values) => {
     console.log("Received values of form: ", values);
+    //props.AddTable(values.name, values.description);
     setVisible(false);
   };
 

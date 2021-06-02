@@ -12,10 +12,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import AddressForm from "./AdressForm";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Nav/Navbar";
 import PaymentForm from "./PaymentForm";
-import KPIsetup from "./KPIsetup";
-import Nav from "../components/Nav";
+import KPIsetup from "../KPI/KPIsetup";
+//import Nav from "../components/Nav";
 //import Review from "./Review";
 
 function Copyright() {
