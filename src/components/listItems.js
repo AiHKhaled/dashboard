@@ -15,7 +15,7 @@ import { Menu } from "antd";
 const { SubMenu } = Menu;
 export const mainListItems = (
   <div>
-    <ListItem button>
+    {/* <ListItem button>
       <ListItemIcon>
         <Link primary="Dashboard" to="/">
           <DashboardIcon />
@@ -24,7 +24,7 @@ export const mainListItems = (
       <Link primary="Dashboard" to="/">
         Dashboard
       </Link>
-    </ListItem>
+    </ListItem> */}
     <ListItem button>
       <ListItemIcon>
         <Link primary="KPIs" to="/KPI">

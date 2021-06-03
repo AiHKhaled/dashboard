@@ -1,7 +1,7 @@
 import { Table, Button, Space, Tag } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
-import CollectionsPage from "../components/MakeKPI";
+//import CollectionsPage from "../components/MakeKPI";
 const data = [
   {
     key: "1",
@@ -161,7 +161,7 @@ class KPITable extends React.Component {
           <Button onClick={this.clearFilters}>Clear filters</Button>
           <Button onClick={this.clearAll}>Clear filters and sorters</Button>
 
-          <CollectionsPage AddTable={this.AddTable} />
+          {/* <CollectionsPage AddTable={this.AddTable} /> */}
         </Space>
         <Table
           columns={columns}

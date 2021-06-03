@@ -201,9 +201,9 @@ export default function Dashboard() {
             <Route path="/setup" exact>
               <SetUp />
             </Route>
-            <Route>
+            {/*  <Route>
               <Dashboard1 />
-            </Route>
+            </Route> */}
             <Route path="/Goals" exact>
               <Goals />
             </Route>
