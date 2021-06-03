@@ -11,11 +11,13 @@ import {
   Layout,
   Anchor,
   InputNumber,
+  Typography,
 } from "antd";
 import "antd/dist/antd.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AnchorExample from "./Anchor";
+const { Title } = Typography;
 
 //const { Sider, Content } = Layout;
 const { Step } = Steps;
@@ -71,10 +73,13 @@ export default class Goals extends React.Component {
       console.log(`selected ${value}`);
     }
     return (
-      <div>
+      <div style={{ overflowX: false }}>
         <AnchorExample />
         <Card id="Goals" grid={{ gutter: 16, column: 4 }}>
-          <h3 style={{ textAlign: "center" }}> Goals </h3>
+          <Title style={{ textAlign: "center" }} level={3}>
+            Goals
+          </Title>
+
           <br></br>
           <div>
             <Select
@@ -124,7 +129,10 @@ export default class Goals extends React.Component {
         </Card>
         <br />
         <Card id="Subgoals">
-          <h3 style={{ textAlign: "center" }}>SubGoals</h3>
+          <Title style={{ textAlign: "center" }} level={3}>
+            Subgoals
+          </Title>
+
           <br />
           <div>
             <Select
@@ -174,7 +182,10 @@ export default class Goals extends React.Component {
         <br />
 
         <Card id="KPI">
-          <h3 style={{ textAlign: "center" }}>KPI</h3>
+          <Title style={{ textAlign: "center" }} level={3}>
+            KPI
+          </Title>
+
           <Divider orientation="left">Define KPI:</Divider>
           <br />
           <div>

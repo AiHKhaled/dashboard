@@ -5,7 +5,7 @@ const { Link } = Anchor;
 const AnchorExample = () => {
   const [targetOffset, setTargetOffset] = useState(undefined);
   useEffect(() => {
-    setTargetOffset(window.innerHeight / 3);
+    setTargetOffset(window.innerHeight / 2);
   }, []);
   return (
     <Anchor targetOffset={targetOffset}>
