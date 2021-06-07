@@ -13,10 +13,12 @@ import {
   InputNumber,
   Typography,
 } from "antd";
+import axios from "axios";
 import "antd/dist/antd.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AnchorExample from "./Anchor";
+import Fetching from "../components/Nav/Fetching";
 const { Title } = Typography;
 
 //const { Sider, Content } = Layout;
@@ -32,6 +34,62 @@ const layout = {
     span: 10,
   },
 };
+const data = [
+  {
+    key: "1",
+    name: "first kpi",
+    description: "this is a kpi",
+    tags: ["nice", "developer"],
+  },
+  {
+    key: "2",
+    name: "second kpi",
+    description: "this is a kpi",
+    tags: ["nice"],
+  },
+  {
+    key: "3",
+    name: "third kpi",
+    description: "this is a kpi",
+    tags: ["loser"],
+  },
+  {
+    key: "4",
+    name: "fourth kpi",
+    description: "this is a kpi",
+    tags: ["cool", "teacher"],
+  },
+  {
+    key: "12",
+    name: "twelveth kpi",
+    description: "this is a kpi",
+    tags: ["cool", "teacher"],
+  },
+  {
+    key: "10",
+    name: "tenth kpi",
+    description: "this is a kpi",
+    tags: ["cool", "teacher"],
+  },
+  {
+    key: "11",
+    name: "eleventh kpi",
+    description: "this is a kpi",
+    tags: ["cool", "teacher"],
+  },
+];
+/* data = [
+  ...data,
+  {
+    key: data.key,
+    name: data.name,
+    description: data.description,
+  },
+];
+this.setState({
+  details: data,
+}); */
+
 /* eslint-disable no-template-curly-in-string */
 
 const validateMessages = {
@@ -42,29 +100,65 @@ const validateMessages = {
 export default class Goals extends React.Component {
   state = {
     current: 0,
+    goals: [],
+    //persons: [],
   };
 
   onChange = (current) => {
     console.log("onChange:", current);
     this.setState({ current });
   };
-
+  /*  AddData = (name, description) => {
+    data.push({ name: name, description: description });
+  };
+  saveInput = (e) => {
+    this.setState({ input: e.target.value });
+  };
+ */
+  //componentDidMount() {
+  //axios.get(`http://127.0.0.1:8000/api/Goals/`).then((res) => res.json());
+  /*  {
+      const Goals = res.Goals;
+      this.setState({ Goals });
+    }); */
+  /* axios.get(`http://127.0.0.1:8000/api/Goals/`).then((res) => {
+      const goals = res.Goals;
+      this.setState({ goals });
+    });
+  } */
   render() {
     const { current } = this.state;
     const onFinish = (values) => {
       console.log(values);
     };
+
     const { Option } = Select;
 
     const children = [];
+    /* {i: 1,
+      name: first goal, 
+      description: what is this, 
+    } */
     for (let i = 10; i < 36; i++) {
       children.push(
         <Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>
       );
     }
+
     function handleChangeKPI(value) {
       console.log(`selected ${value}`);
     }
+
+    /*   const [goals, setGoals] = React.useState([]);
+    React.useEffect(() => {
+      fetch("http://127.0.0.1:8000/api/Goals/")
+        .then((res) => res.json())
+        .then((Goals) => {
+          setGoals(Goals);
+        });
+    }, []);
+ */
+
     function onChange(value) {
       console.log("changed", value);
     }
@@ -75,6 +169,7 @@ export default class Goals extends React.Component {
     return (
       <div style={{ overflowX: false }}>
         <AnchorExample />
+
         <Card id="Goals" grid={{ gutter: 16, column: 4 }}>
           <Title style={{ textAlign: "center" }} level={3}>
             Goals
@@ -85,19 +180,27 @@ export default class Goals extends React.Component {
             <Select
               mode="tags"
               style={{ paddingLeft: 93, width: "50%" }}
-              onChange={handleChange}
+              onChange={this.onChange}
               tokenSeparators={[","]}
             >
-              {children}
+              {/* {goals && this.state.goals.map((goal) => <li>{goal.name}</li>)} */}
+              <Fetching />
+              {/* 
+              {this.props.state.Goals.map((goal) => (
+                <li>{goal.name}</li>
+              ))} */}
+
+              {/* {data.map((element) => (
+                <Option key={element.key} value={element.key}>
+                  {element.name}
+                </Option>
+              ))} */}
             </Select>
           </div>
           <br />
           <br />
-
           <Divider orientation="left">Define another Goal:</Divider>
-
           <br />
-
           <Form
             {...layout}
             name="nest-messages"
@@ -120,7 +223,7 @@ export default class Goals extends React.Component {
             </Form.Item>
             <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 21 }}>
               <Link to="/">
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" onClick={this.AddData}>
                   Submit
                 </Button>
               </Link>
@@ -180,7 +283,6 @@ export default class Goals extends React.Component {
           </div>
         </Card>
         <br />
-
         <Card id="KPI">
           <Title style={{ textAlign: "center" }} level={3}>
             KPI
