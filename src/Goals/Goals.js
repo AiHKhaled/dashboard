@@ -184,17 +184,17 @@ export default class Goals extends React.Component {
               tokenSeparators={[","]}
             >
               {/* {goals && this.state.goals.map((goal) => <li>{goal.name}</li>)} */}
-              <Fetching />
+
               {/* 
               {this.props.state.Goals.map((goal) => (
                 <li>{goal.name}</li>
               ))} */}
 
-              {/* {data.map((element) => (
+              {data.map((element) => (
                 <Option key={element.key} value={element.key}>
                   {element.name}
                 </Option>
-              ))} */}
+              ))}
             </Select>
           </div>
           <br />
