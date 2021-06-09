@@ -14,6 +14,16 @@ import dollar from "../assets/doller.svg";
 import styled from "styled-components";
 import circleCropped from "../assets/circleCropped.png";
 import churn from "../assets/churn.svg";
+import Chart from "../KPI/Kpi1";
+import Map from "../KPI/Map";
+import Piechart from "../KPI/Piechart";
+import Line from "../KPI/Line";
+
+import { Typography } from "antd";
+import Churnsection from "../KPI/Churnsection";
+import KpiSection from "../KPI/KpiSection";
+const { Title } = Typography;
+
 const something = [
   {
     id: "1",
@@ -119,6 +129,8 @@ const KPI = () => {
               alignContent: " center",
               alignItems: "center",
               display: "flex",
+              position: "relative",
+              bottom: "120px",
               flexDirection: "column",
               justifyContent: "top",
               borderRadius: "50%",
@@ -131,11 +143,6 @@ const KPI = () => {
               style={{
                 width: 40,
                 height: 40,
-                /*  textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center", */
-                //backgroundImage: url();
               }}
               src={something[i].icon}
               alt="something's wrong"
@@ -148,43 +155,40 @@ const KPI = () => {
 
   return (
     <div>
-      {/* <StepsS /> */}
       <Divider />
-      {/* <Tabletrial />
-       */}
-      {/* {kpiData.map((kpi) => {
-        //console.log(kpi);
-        <div>
-          <li>{kpi}</li>
-        </div>;
-      })}
-       */}
+
       <div className="site-card-wrapper">
         <a href="#">
           <Row gutter={16}>{children}</Row>
         </a>
+        <Divider />
       </div>
-      {/* ; })} */}
-      {/* <KPITable /> */}
-      {/* <CustomerSegmentation /> */}
+      <Churnsection />
+      <KpiSection />
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+      ></link>
     </div>
   );
 };
 
 export default KPI;
 
-/* const IconStyled = styled.b`
-  badge {
-    height: 20;
-    width: 2;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0 8px 10px 0 rgba(52, 72, 94, 0.17);
+const IconStyled = styled.div`
+  height: 50;
+  width: 50;
+  text-align: top;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  border-radius: 50%;
+  box-shadow: 0 8px 10px 0 rgba(8, 8, 8, 0.17);
+  background-color: rgba(147, 196, 191, 0.17);
+  is-child {
+    border-radius: 10px !important;
   }
-  .badge.is-dollar {
-    background-color: #44af69;
-  }
-`; */
+`;

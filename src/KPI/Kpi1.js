@@ -1,33 +1,68 @@
-import React, { Component } from "react";
-class Kpi extends Component {
+import FusionCharts from "fusioncharts";
+import charts from "fusioncharts/fusioncharts.charts";
+import React from "react";
+import ReactFusioncharts from "react-fusioncharts";
+import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
+// Resolves charts dependancy
+charts(FusionCharts);
+
+const dataSource = {
+  chart: {
+    caption: "Countries With Most Oil Reserves [2017-18]",
+    subcaption: "In MMbbl = One Million barrels",
+    xaxisname: "Country",
+    yaxisname: "Reserves (MMbbl)",
+    //numbersuffix: "K",
+    showBorder: "0",
+    theme: "candy",
+  },
+  data: [
+    {
+      label: "Venezuela",
+      value: "290",
+    },
+    {
+      label: "Saudi",
+      value: "260",
+    },
+    {
+      label: "Canada",
+      value: "180",
+    },
+    {
+      label: "Iran",
+      value: "140",
+    },
+    {
+      label: "Russia",
+      value: "115",
+    },
+    {
+      label: "UAE",
+      value: "100",
+    },
+    {
+      label: "US",
+      value: "30",
+    },
+    {
+      label: "China",
+      value: "30",
+    },
+  ],
+};
+
+export default class Chart extends React.Component {
   render() {
-    const cardlist = this.props.cards.map((kpi) => {
-      return (
-        <a
-          className="column is-tablet is-one-quarter-desktop is-half-tablet is-full-mobile"
-          key={kpi.id}
-          href="#section"
-          onClick={() => {
-            this.props.handleClick(kpi.id);
-          }}
-        >
-          <div className="card">
-            <div className="card-content">
-              <div className="columns columns-kpi ">
-                <div className="column header">
-                  <div className="column indicator">{kpi.value}</div>
-                  <div className={kpi.iconType}>
-                    <img src={kpi.icon} alt="" />
-                  </div>
-                </div>
-              </div>
-              <div className="sub-indicator">{kpi.id}</div>
-            </div>
-          </div>
-        </a>
-      );
-    });
-    return <div className="columns is-mobile">{cardlist}</div>;
+    return (
+      <ReactFusioncharts
+        type="column2d"
+        width="100%"
+        height="50%"
+        dataFormat="JSON"
+        dataSource={dataSource}
+      />
+    );
   }
 }
-export default Kpi;
