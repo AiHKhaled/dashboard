@@ -22,6 +22,8 @@ import Line from "../KPI/Line";
 import { Typography } from "antd";
 import Churnsection from "../KPI/Churnsection";
 import KpiSection from "../KPI/KpiSection";
+import ChartTest from "../KPI/TestChart";
+import Segmentation from "../KPI/Segmentation";
 const { Title } = Typography;
 
 const something = [
@@ -154,7 +156,7 @@ const KPI = () => {
   }
 
   return (
-    <div>
+    <div style={{ fontFamily: "Roboto" }} className="is-main">
       <Divider />
 
       <div className="site-card-wrapper">
@@ -165,6 +167,7 @@ const KPI = () => {
       </div>
       <Churnsection />
       <KpiSection />
+      <Segmentation />
 
       <link
         rel="stylesheet"
@@ -190,5 +193,10 @@ const IconStyled = styled.div`
   background-color: rgba(147, 196, 191, 0.17);
   is-child {
     border-radius: 10px !important;
+  }
+  .is-main {
+    align-content: center;
+    align-items: center;
+    display: flex;
   }
 `;

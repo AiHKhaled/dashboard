@@ -14,7 +14,11 @@ export default class Churnsection extends Component {
   }
   render() {
     return (
-      <section id="subscribers" className="section is-top-padded">
+      <section
+        style={{ width: "100%" }}
+        id="subscribers"
+        className="section is-top-padded"
+      >
         <Title level={3}>Churn</Title>
         <br />
         <div className="tile is-ancestor">
