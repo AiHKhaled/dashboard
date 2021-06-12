@@ -12,6 +12,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Menu } from "antd";
+import performance from "../assets/performance.svg";
 const { SubMenu } = Menu;
 export const mainListItems = (
   <div>
@@ -26,11 +27,9 @@ export const mainListItems = (
       </Link>
     </ListItem> */}
     <ListItem button>
-      <ListItemIcon>
-        <Link primary="KPIs" to="/KPI">
-          <BarChartIcon />
-        </Link>
-      </ListItemIcon>
+      <Link primary="KPIs" to="/KPI">
+        <img src={performance} />
+      </Link>
       <Link primary="KPIs" to="/KPI">
         <ListItemText primary="KPIs" to="/KPI" />
       </Link>
@@ -46,9 +45,7 @@ export const mainListItems = (
       </Link>
     </ListItem>
     <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
+      <ListItemIcon>{/*  <BarChartIcon /> */}</ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItem>
   </div>

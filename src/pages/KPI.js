@@ -13,7 +13,8 @@ import KPIcard from "../utils/KPIcards";
 import dollar from "../assets/doller.svg";
 import styled from "styled-components";
 import circleCropped from "../assets/circleCropped.png";
-import churn from "../assets/churn.svg";
+import stairs from "../assets/stairs.png";
+import segmentation from "../assets/segmentation.svg";
 import Chart from "../KPI/Kpi1";
 import Map from "../KPI/Map";
 import Piechart from "../KPI/Piechart";
@@ -30,26 +31,26 @@ const something = [
   {
     id: "1",
     name: "Revenue Attrition",
-    icon: churn,
+    icon: segmentation,
     iconType: "badge is-dollar",
     description: "Tracks your revenue",
   },
   {
     id: "2",
     name: "Customer lifetime value",
-    icon: churn,
+    icon: stairs,
     description: "your customers's value",
   },
   {
     id: "3",
     name: "SAC",
-    icon: churn,
+    icon: stairs,
     description: "represents the true cost of gaining a new customer. ",
   },
   {
     id: "4",
     name: "Customer Churn",
-    icon: churn,
+    icon: stairs,
     description: "how many customers left the company ",
   },
   {
@@ -94,17 +95,18 @@ const KPI = () => {
           key={i}
           style={{
             width: 240,
-            height: "150px",
+            height: "200px",
             alignContent: "right",
             borderRadius: "25px",
           }}
           hoverable
-          //title={something[i].name}
-          img={churn}
+          img={stairs}
           bordered={false}
         >
+          {something[i].name}
           <div style={{ textAlign: "right " }} className="stats">
             <Statistic
+              //style={{ width: "20px", height: "20px" }}
               title="Active"
               value={11.28}
               precision={2}
@@ -122,13 +124,12 @@ const KPI = () => {
             />
           </div>
           {/* {something[i].description} */}
-
           <div
             style={{
-              height: 50,
-              width: 50,
-              textAlign: "top",
-              alignContent: " center",
+              height: 60,
+              width: 60,
+              textAlign: "center",
+              alignContent: " top",
               alignItems: "center",
               display: "flex",
               position: "relative",
@@ -145,6 +146,8 @@ const KPI = () => {
               style={{
                 width: 40,
                 height: 40,
+                position: "relative",
+                top: "10px",
               }}
               src={something[i].icon}
               alt="something's wrong"
@@ -156,7 +159,10 @@ const KPI = () => {
   }
 
   return (
-    <div style={{ fontFamily: "Roboto" }} className="is-main">
+    <div
+      style={{ padding: "2.5rem", fontFamily: "Roboto" }}
+      className="is-main"
+    >
       <Divider />
 
       <div className="site-card-wrapper">

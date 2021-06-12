@@ -167,7 +167,12 @@ export default class Goals extends React.Component {
       console.log(`selected ${value}`);
     }
     return (
-      <div style={{ overflowX: false }}>
+      <div
+        style={{
+          overflowX: false,
+          padding: "2.5rem",
+        }}
+      >
         <AnchorExample />
 
         <Card id="Goals" grid={{ gutter: 16, column: 4 }}>
@@ -176,6 +181,7 @@ export default class Goals extends React.Component {
           </Title>
 
           <br></br>
+
           <div>
             <Select
               mode="tags"

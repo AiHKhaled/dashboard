@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
-    flexGrow: 3,
+    flexGrow: 1,
     //height: "100vh",
     overflowX: "false",
   },
@@ -194,6 +194,7 @@ export default function Dashboard() {
 
         <Divider />
       </Drawer>
+
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -207,6 +208,7 @@ export default function Dashboard() {
             {/*  <Route>
               <Dashboard1 />
             </Route> */}
+
             <Route path="/Goals" exact>
               <Goals />
             </Route>

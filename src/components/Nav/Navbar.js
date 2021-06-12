@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Menu } from "antd";
+import performance from "../../assets/performance.svg";
+
 import {
   AppstoreOutlined,
   MailOutlined,
@@ -37,8 +39,8 @@ const Sider = () => {
         <SubMenu
           style={{ fontSize: "15px" }}
           key="sub1"
-          icon={<SlidersFilled style={{ fontSize: "30px" }} />}
           title="Goals"
+          icon={<img src={performance} style={{ width: 40, height: 40 }} />}
         >
           <Link primary="setup" to="/SetUp">
             <SubMenu key="sub3" title="SubGoals">

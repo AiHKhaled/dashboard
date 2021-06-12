@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Line from "./Line";
 import { Typography } from "antd";
+import segmentation from "../assets/segmentation.svg";
 
 const { Title } = Typography;
 
@@ -17,7 +18,14 @@ class KpiSection extends Component {
       <section id="kpi" className="section">
         <span className="has-image">
           <span className="badge is-feed">
-            <img alt="image" />
+            <img
+              src={segmentation}
+              style={{
+                width: "60px",
+                height: "60px",
+              }}
+              alt="image"
+            />
           </span>
           <Title level={3}> Subscribers</Title>
         </span>

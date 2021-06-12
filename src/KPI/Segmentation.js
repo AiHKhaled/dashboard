@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 //import Chart from "./Chart";
 import ChartTest from "./TestChart";
-import { Typography } from "antd";
+import { Typography, Divider } from "antd";
 import styled from "styled-components";
+import segmentation from "../assets/segmentation.svg";
 const { Title } = Typography;
 export default class Segmentation extends Component {
   render() {
@@ -17,8 +18,19 @@ export default class Segmentation extends Component {
           style={{ fontFamily: "Roboto" }}
           className=" section is-top-padded"
         >
-          <Title level={3}>Segmentation</Title>
-
+          <img
+            style={{
+              position: "relative",
+              top: "65px",
+              width: 60,
+              height: 60,
+            }}
+            src={segmentation}
+            alt=""
+          />
+          <Divider orientation="left">
+            <Title level={3}>Segmentation</Title>
+          </Divider>
           <div id="awardsRating" className="tile is-ancestor">
             <div className="tile is-6 is-vertical is-parent">
               <article
@@ -34,7 +46,7 @@ export default class Segmentation extends Component {
               </article>
             </div>
 
-            <div className="tile is-6 is-vertical is-parent">
+            {/*  <div className="tile is-6 is-vertical is-parent">
               <article
                 className="tile is-12 is-child box"
                 style={{ borderRadius: "10px !important" }}
@@ -44,7 +56,7 @@ export default class Segmentation extends Component {
 
                 <ChartTest />
               </article>
-            </div>
+            </div> */}
           </div>
           <div className="card">
             <div className="card-content">
@@ -55,18 +67,11 @@ export default class Segmentation extends Component {
             {/*  </div>
           </div> */}
             <div className="column is-half-desktop is-half-fullhd">
-              {/*  <span className="has-image">
-                            <span className="badge is-star">
-                                <img src={this.props.ratingIcon} alt="" /></span>  <h3 className="snapshot image-has-text">Ratings</h3>
-                            <span className="rect is-status">
-                                {this.props.ratingValue}
-                            </span>
-                        </span> */}
               <div className="card">
                 <div className="card-content">
                   <p className="sub-caption">IMDb Ratings</p>
                   <p className="is-smaller">Genre Wise</p>
-                  {/* <Chart datasource={this.props.datasource.imdbRatingConfig} /> */}
+                  <ChartTest />
                 </div>
               </div>
             </div>
