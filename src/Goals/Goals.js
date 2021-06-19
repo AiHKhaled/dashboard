@@ -20,6 +20,7 @@ import styled from "styled-components";
 import AnchorExample from "./Anchor";
 import Fetching from "../components/Nav/Fetching";
 const { Title } = Typography;
+const { Option } = Select;
 
 //const { Sider, Content } = Layout;
 const { Step } = Steps;
@@ -78,6 +79,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
 ];
+
 /* data = [
   ...data,
   {
@@ -100,14 +102,15 @@ const validateMessages = {
 export default class Goals extends React.Component {
   state = {
     current: 0,
-    goals: [],
+    goals: data,
+
     //persons: [],
   };
 
-  onChange = (current) => {
+  /* onChange = (current) => {
     console.log("onChange:", current);
     this.setState({ current });
-  };
+  }; */
   /*  AddData = (name, description) => {
     data.push({ name: name, description: description });
   };
@@ -126,6 +129,11 @@ export default class Goals extends React.Component {
       this.setState({ goals });
     });
   } */
+  ChooseDefault = () => {
+    this.setState({
+      goals: data[2].name,
+    });
+  };
   render() {
     const { current } = this.state;
     const onFinish = (values) => {
@@ -135,6 +143,7 @@ export default class Goals extends React.Component {
     const { Option } = Select;
 
     const children = [];
+
     /* {i: 1,
       name: first goal, 
       description: what is this, 
@@ -158,13 +167,25 @@ export default class Goals extends React.Component {
         });
     }, []);
  */
-
-    function onChange(value) {
-      console.log("changed", value);
+    function DoMath() {
+      const [num, setNum] = useState(0);
+      const [num1, setNum1] = useState(0);
+      const [num2, setNum2] = useState(0);
+      const [sum, setSum] = useState(num + num1 + num2);
     }
 
-    function handleChange(value) {
-      console.log(`selected ${value}`);
+    function onChange() {
+      var num1 = document.getElementById("num1").value;
+      var num = document.getElementById("num").value;
+      var sum = parseInt(num1) + parseInt(num);
+      var output = document.getElementById("sum").value;
+      console.log(output, sum);
+    }
+
+    function handleChange(value, num) {
+      var num = document.getElementById("num").value;
+      var sum = value + num;
+      console.log(`selected ${sum}`);
     }
     return (
       <div
@@ -227,12 +248,14 @@ export default class Goals extends React.Component {
             <Form.Item name={["user", "Description"]} label="Description">
               <Input.TextArea />
             </Form.Item>
-            <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 21 }}>
+            <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 18 }}>
               <Link to="/">
                 <Button type="primary" htmlType="submit" onClick={this.AddData}>
                   Submit
                 </Button>
               </Link>
+              &nbsp; &nbsp;
+              <Button type="secondary">Choose Default</Button>
             </Form.Item>
           </Form>
         </Card>
@@ -293,7 +316,6 @@ export default class Goals extends React.Component {
           <Title style={{ textAlign: "center" }} level={3}>
             KPI
           </Title>
-
           <Divider orientation="left">Define KPI:</Divider>
           <br />
           <div>
@@ -311,22 +333,19 @@ export default class Goals extends React.Component {
 
           <div style={{ paddingLeft: "90px" }}>
             <br /> <br />
-            <InputNumber Name="input" min={1} max={10} onChange={onChange} />
+            <InputNumber id="num" min={1} max={10} /* onChange={onChange} */ />
             <br /> <br />
-            <InputNumber name="input" min={1} max={10} onChange={onChange} />
+            <InputNumber id="num1" min={1} max={10} /* onChange={onChange} */ />
             <br /> <br />
-            <InputNumber name="input" min={1} max={10} onChange={onChange} />
+            <InputNumber id="sum" min={1} max={10} onChange={onChange.output} />
             <br /> <br />
             <Select
               defaultValue="Sum"
+              onChange={onChange}
               style={{ width: 120 }}
-              onChange={handleChange}
             >
               <Option value="division">Division</Option>
               <Option value="sum">Sum</Option>
-              <Option value="disabled" disabled>
-                Disabled
-              </Option>
             </Select>
             <br /> <br /> <br />
           </div>
